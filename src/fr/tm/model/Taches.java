@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 
 
-public class Taches extends ArrayList<Tache> implements Serializable, AbstractModel {
+public class Taches extends ArrayList<Tache> implements Serializable {
 	private static final long serialVersionUID = 2716455268187555408L;
 	
 	

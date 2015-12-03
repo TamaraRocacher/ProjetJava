@@ -1,6 +1,11 @@
 package fr.tm;
 
 import fr.tm.model.*;
+
+import javax.imageio.ImageIO;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 import fr.tm.controller.*;
 import fr.tm.view.*;
 
@@ -11,8 +16,31 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		AbstractModel modele = new Taches();
-		AbstractView vue = new View();
+		try {
+            // Set System L&F
+			UIManager.setLookAndFeel(
+            UIManager.getSystemLookAndFeelClassName());
+		} 
+		catch (UnsupportedLookAndFeelException e) {
+			// handle exception
+		}
+		catch (ClassNotFoundException e) {
+			// handle exception
+		}
+		catch (InstantiationException e) {
+			// handle exception
+		}
+		catch (IllegalAccessException e) {
+			// handle exception
+		}
+
+		
+		Taches modele = new Taches();
+		View vue = new View();
+		
+		Controller controller = new Controller(modele, vue);
+		
+		System.out.print(ImageIO.getReaderFileSuffixes());
 	}
 
 }
