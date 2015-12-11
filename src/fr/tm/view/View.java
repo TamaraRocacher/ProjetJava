@@ -2,6 +2,7 @@ package fr.tm.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -13,6 +14,7 @@ import javax.swing.Box;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -26,9 +28,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
+import fr.tm.model.TableModel;
 import fr.tm.model.Taches;
 
 public class View extends JFrame {
@@ -74,6 +78,13 @@ public class View extends JFrame {
 		this.setVisible(true);
 	}
 	
+	public void initTable() {
+		//String title[] = {"Effectuée","Intitulé","Date Début", "Date Fin", "Catégorie", "Suppression"};
+		table = new JTable();
+		//table.getColumn("Suppression").setCellEditor(new DeleteButtonEditor(new JCheckBox()));
+	}
+	
+	
 	public void initComponents() {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu menu = new JMenu("Affichage");
@@ -109,13 +120,7 @@ public class View extends JFrame {
 		dateFin = new JFormattedTextField(new SimpleDateFormat("dd/MM/yyyy"));
 		dateFin.setValue(new java.util.Date());
 		
-		Object[][] data = {
-			{true, "Faire le Projet Java", "13/11/2015", "13/12/2015"},
-			{false,"Aller à la peche", "03/12/2015", "07/12/2015"}
-		};
-		
-		String title[] = {"Effectuée","Intitulé","Date Début", "Date Fin"};
-		table = new JTable(data, title);
+		initTable();
 		
 		scroll = new JScrollPane(table);
 		scroll.setPreferredSize(new Dimension(500,300));
@@ -165,7 +170,7 @@ public class View extends JFrame {
 		gbc.gridx = 1;
 		gbc.gridy++;
 		pan.add(scroll, BorderLayout.WEST);
-		boutonMaJ = new JButton();
+		//boutonMaJ = new JButton();
 	}
 	
 	public void addListener(ActionListener listenForUpdate) {
@@ -220,7 +225,38 @@ public class View extends JFrame {
 		this.categorie = categorie;
 	}
 	
-	public void update(Taches taches) {
-		
+	public void update() {
+		//table.getColumn("Suppression").setCellEditor(new ButtonEditor(new JCheckBox()));
+		this.table.getColumn("Suppression").setCellRenderer(new ButtonRenderer());
+		/*table.getColumnModel().getColumn(0).setCellRenderer(new DefaultTableCellRenderer() {
+			
+			private static final long serialVersionUID = 1L;
+
+			public Component getTableCellRendererComponent(JTable table,
+	                Object value, boolean isSelected, boolean hasFocus, int row,
+	                int column) {
+	 
+	            if (value instanceof JComboBox) {
+	                return (JComboBox) value;
+	            }
+	            if (value instanceof Boolean) {
+	                JCheckBox cb = new JCheckBox();
+	                cb.setSelected(((Boolean) value).booleanValue());
+	                return cb;
+	            }
+	            if (value instanceof JCheckBox) {
+	                return (JCheckBox) value;
+	            }
+	            return new JTextField(value.toString());
+	        }
+		});*/
+	}
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
 	}
 }

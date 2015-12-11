@@ -33,9 +33,11 @@ public class Main {
 		catch (IllegalAccessException e) {
 			// handle exception
 		}
-
-		
-		Taches modele = new Taches();
+		Tache t[]=new Tache[1];
+		Tache t1= new TachePonctuelle();
+		t[0] = t1;
+		String title[] = {"Effectuée","Intitulé","Date Début", "Date Fin", "Catégorie", "Suppression"};
+		TableModel modele = new TableModel(t, title);
 		View vue = new View();
 		
 		Controller controller = new Controller(modele, vue);

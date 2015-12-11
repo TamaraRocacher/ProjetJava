@@ -1,0 +1,18 @@
+INDEX VERSION 1.127+/home/tam/git/ProjetJava/.metadata/.plugins/org.eclipse.jdt.core
+1875776912.index
+1516944646.index
+52823283.index
+715131383.index
+2902493147.index
+177938669.index
+4122248154.index
+1902813264.index
+2968051735.index
+283777872.index
+273057812.index
+2940644420.index
+1187548112.index
+2791930473.index
+2218836786.index
+4083645041.index
+4212671733.index

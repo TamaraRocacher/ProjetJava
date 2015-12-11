@@ -1,0 +1,28 @@
+package fr.tm.model;
+
+import java.util.Date;
+
+public class TaskModel extends AbstractModel {
+	private String taskName = "";
+	private Date deadline;
+	private boolean longterm = false; //True if longterm task
+	private int duration;
+	
+	@SuppressWarnings("deprecation")
+	public TaskModel() {
+		taskName = "";
+		deadline = new Date();
+		deadline.setHours(0);
+		deadline.setMinutes(0);
+		deadline.setSeconds(0);
+		
+		longterm = false;
+		
+		Date today = new Date();
+		today.setHours(0);
+		today.setMinutes(0);
+		today.setSeconds(0);
+		
+		duration = (int) ((deadline.getTime()-today.getTime())/86400);
+	}
+}

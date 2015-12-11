@@ -6,18 +6,28 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 
 import fr.tm.model.*;
 import fr.tm.view.*;
 
 public class Controller {
-	private Taches model;
+	private TableModel model;
 	private View view;
 	
-	public Controller(Taches model, View view) {
+	public Controller(TableModel model, View view) {
 		this.model = model;
 		this.view = view;
+		
+		Tache data = new TachePonctuelle();
+		
+		model.addRow(data);
+		view.getTable().setModel(model);
+		view.update();
+		
+		view.getTable().getColumn("Suppression").setCellEditor(new DeleteButtonEditor(new JCheckBox()));
+		view.addListener(new MaJListener());
 	}
 	
 	class MaJListener implements ActionListener {
@@ -30,8 +40,9 @@ public class Controller {
 		public void actionPerformed(ActionEvent e) {
 			String inti = view.getIntitule().getText();
 			SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy");
-			Date dateDebut;
-			Date dateFin;
+			Date dateDebut = new Date();
+			Date dateFin = new Date();
+			System.out.println("action");
 			
 			try {
 				dateDebut = sdf.parse(view.getDateDebut().getText());
@@ -52,9 +63,17 @@ public class Controller {
 				t = new TacheLongCours();
 			}
 			
-			model.add(t);
+			t.setIntitule(inti);
+			t.setCategorie(categorie);
+			t.setDateDebut(dateDebut);
+			t.setDateFin(dateFin);
+			
+			model.addRow(t);
 			//model.tri(view.getMode());
-			view.update(model);
+			view.getTable().setModel(model);
+			
+			view.update();
+			System.out.println(model.toString());
 		}
 		
 	}

@@ -1,0 +1,5 @@
+package fr.tm.model;
+
+public class TaskModel extends AbstractModel {
+
+}
