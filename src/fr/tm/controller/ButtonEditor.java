@@ -11,7 +11,11 @@ import fr.tm.model.*;
 
 public class ButtonEditor extends DefaultCellEditor {
     
-	   protected JButton button;
+	   /**
+	 * 
+	 */
+	private static final long serialVersionUID = -8863406240144669400L;
+	protected JButton button;
 	   private ButtonListener bListener = new ButtonListener();
 	    
 	   public ButtonEditor(JCheckBox checkBox) {

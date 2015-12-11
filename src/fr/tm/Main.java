@@ -42,7 +42,6 @@ public class Main {
 		
 		Controller controller = new Controller(modele, vue);
 		
-		System.out.print(ImageIO.getReaderFileSuffixes());
 	}
 
 }

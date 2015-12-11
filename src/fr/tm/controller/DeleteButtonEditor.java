@@ -4,7 +4,6 @@ import fr.tm.model.*;
 
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.table.TableCellEditor;
 
 import java.awt.Component;

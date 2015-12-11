@@ -7,8 +7,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.JCheckBox;
-import javax.swing.JTextField;
-
 import fr.tm.model.*;
 import fr.tm.view.*;
 

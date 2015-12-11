@@ -1,6 +1,5 @@
 package fr.tm.model;
 
-import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 import java.io.Serializable;
 
@@ -64,7 +63,7 @@ public class TableModel extends AbstractTableModel implements Serializable{
 	public void removeRow(int position){
 	       
 		int indice = 0, indice2 = 0;
-	    int nbRow = this.getRowCount()-1, nbCol = this.getColumnCount();
+	    int nbRow = this.getRowCount()-1; //nbCol = this.getColumnCount();
 	    Tache[] temp = new Tache[nbRow];
 	    
 	    for(Tache value : this.t){
@@ -80,7 +79,7 @@ public class TableModel extends AbstractTableModel implements Serializable{
 	    this.fireTableDataChanged();
 	}
 	public void addRow(Tache data){
-	      int indice = 0, nbRow = this.getRowCount(), nbCol = this.getColumnCount();
+	      int indice = 0, nbRow = this.getRowCount();//, nbCol = this.getColumnCount();
 	       
 	      Tache[] temp= this.t;
 	      //this.data = new Object[nbRow+1][nbCol];

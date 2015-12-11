@@ -8,8 +8,9 @@ import javax.swing.table.TableCellRenderer;
 
 public class ButtonRenderer extends JButton implements TableCellRenderer{
 
+	private static final long serialVersionUID = -9152412148807211638L;
 
-	  public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean isFocus, int row, int col) {
+	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean isFocus, int row, int col) {
 
 	    //On écrit dans le bouton ce que contient la cellule
 

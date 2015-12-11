@@ -221,13 +221,14 @@ public class View extends JFrame {
 		return categorie;
 	}
 
-	public void setCategorie(JComboBox categorie) {
+	public void setCategorie(JComboBox<String> categorie) {
 		this.categorie = categorie;
 	}
 	
 	public void update() {
 		//table.getColumn("Suppression").setCellEditor(new ButtonEditor(new JCheckBox()));
 		this.table.getColumn("Suppression").setCellRenderer(new ButtonRenderer());
+		
 		/*table.getColumnModel().getColumn(0).setCellRenderer(new DefaultTableCellRenderer() {
 			
 			private static final long serialVersionUID = 1L;
