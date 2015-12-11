@@ -13,5 +13,7 @@ public class Taches extends ArrayList<Tache> implements Serializable {
 	private static final long serialVersionUID = 2716455268187555408L;
 	
 	
-
+	public void tri(Boolean b) {
+		
+	}
 }

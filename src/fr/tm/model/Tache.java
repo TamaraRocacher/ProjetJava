@@ -18,7 +18,7 @@ public abstract class Tache implements Serializable {
 		dateTerminee = new Date();
 	}
 	
-	public abstract boolean estReussie();
+	public abstract boolean estTerminee();
 	
 	public abstract boolean estEnRetard();
 	

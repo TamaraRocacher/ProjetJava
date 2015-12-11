@@ -2,7 +2,7 @@ package fr.tm.model;
 
 public class TachePonctuelle extends Tache {
 
-	public boolean estReussie() {
+	public boolean estTerminee() {
 		return false;
 	}
 

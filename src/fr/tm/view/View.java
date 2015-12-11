@@ -17,8 +17,11 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -36,6 +39,9 @@ public class View extends JFrame {
 	JPanel panRight;
 	JScrollPane scroll;
 	JTable table;
+	
+	JRadioButtonMenuItem vueSimple;
+	JRadioButtonMenuItem vueDetaillee;
 	
 	JRadioButton ponctuel = new JRadioButton("Tâche Ponctuelle");
 	JRadioButton longCours = new JRadioButton("Tâche au long cours");
@@ -69,6 +75,21 @@ public class View extends JFrame {
 	}
 	
 	public void initComponents() {
+		JMenuBar menuBar = new JMenuBar();
+		JMenu menu = new JMenu("Affichage");
+		ButtonGroup mode = new ButtonGroup();
+		vueSimple = new JRadioButtonMenuItem("Vue Simple");
+		vueDetaillee = new JRadioButtonMenuItem("Vue Détaillée");
+		mode.add(vueSimple);
+		mode.add(vueDetaillee);
+		vueSimple.setSelected(true);
+		
+		menuBar.add(menu);
+		
+		menu.add(vueSimple);
+		menu.add(vueDetaillee);
+		
+		this.setJMenuBar(menuBar);
 		pan = new JPanel();
 		panNouvelleTache = new JPanel();
 		panRight = new JPanel();
@@ -80,6 +101,7 @@ public class View extends JFrame {
 		
 		intitule = new JTextField();
 		categorie = new JComboBox();
+		categorie.addItem(new String("Test"));
 		
 		dateDebut = new JFormattedTextField(new SimpleDateFormat("dd/MM/yyyy"));
 		dateDebut.setValue(new java.util.Date());
