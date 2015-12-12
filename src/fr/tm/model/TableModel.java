@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 
 public class TableModel extends AbstractTableModel implements Serializable{
 	private static final long serialVersionUID = 2L;
@@ -20,9 +21,9 @@ public class TableModel extends AbstractTableModel implements Serializable{
 		this.t = t;
 		trie = null;
 		this.title = title;
-		trier();
-		deserialize();
 		
+		deserialize();
+		trier();
 	}
 	
 	public void serialize() {
@@ -103,10 +104,16 @@ public class TableModel extends AbstractTableModel implements Serializable{
 		}
 		else if(col == 1) 			//Intitulé
 			return this.trie[row].getIntitule();
-		else if(col == 2)			//DateDeb
-			return this.trie[row].getDateDebut();
-		else if(col == 3)			//DateFin
-			return this.trie[row].getDateFin();
+		else if(col == 2){			//DateDeb
+			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy");
+			String laDateDeDebut = sdf.format(this.trie[row].getDateDebut());
+			return laDateDeDebut;
+		}
+		else if(col == 3){			//DateFin
+			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy");
+			String laDateDeFin = sdf.format(this.trie[row].getDateFin());
+			return laDateDeFin;
+		}
 		else if(col == 4)			//Categorie
 			return this.trie[row].getCategorie();
 		else						//BoutonSupprimer

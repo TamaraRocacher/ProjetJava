@@ -22,10 +22,10 @@ public class Controller implements Serializable{
 		this.model = model;
 		this.view = view;
 		
-		Tache data = new TachePonctuelle();
-		data.setTerminee(false);
+		//Tache data = new TachePonctuelle();
+		//data.setTerminee(false);
 		
-		model.addRow(data);
+		//model.addRow(data);
 		view.getTable().setModel(model);
 		view.update();
 		
@@ -78,33 +78,7 @@ public class Controller implements Serializable{
 			view.update();
 			System.out.println(model.toString());
 			
-			/*try {
-				// création d'une personne
-				//Personne p = new Personne("Dupont", "Jean", 36);
-				//System.out.println("creation de : " + p);
-
-				// ouverture d'un flux de sortie vers le fichier "personne.serial"
-				FileOutputStream fos = new FileOutputStream("TableModel.serial");
-
-				// création d'un "flux objet" avec le flux fichier
-				ObjectOutputStream oos= new ObjectOutputStream(fos);
-				try {
-					// sérialisation : écriture de l'objet dans le flux de sortie
-					oos.writeObject(model); 
-					// on vide le tampon
-					oos.flush();
-					System.out.println(model + " a ete serialise");
-				} finally {
-					//fermeture des flux
-					try {
-						oos.close();
-					} finally {
-						fos.close();
-					}
-				}
-			} catch(IOException ioe) {
-				ioe.printStackTrace();
-			}*/
+			
 		}
 		
 	}

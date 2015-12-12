@@ -112,7 +112,11 @@ public class View extends JFrame {
 		
 		intitule = new JTextField();
 		categorie = new JComboBox();
-		categorie.addItem(new String("Test"));
+		categorie.addItem(new String("Travail"));
+		categorie.addItem(new String("Etudes"));
+		categorie.addItem(new String("Sport"));
+		categorie.addItem(new String("Personnel"));
+		categorie.addItem(new String("Loisirs"));
 		
 		dateDebut = new JFormattedTextField(new SimpleDateFormat("dd/MM/yyyy"));
 		dateDebut.setValue(new java.util.Date());
