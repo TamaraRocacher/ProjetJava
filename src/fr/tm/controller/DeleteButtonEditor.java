@@ -9,10 +9,11 @@ import javax.swing.table.TableCellEditor;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 
 import javax.swing.*;
 
-public class DeleteButtonEditor extends DefaultCellEditor implements TableCellEditor {
+public class DeleteButtonEditor extends DefaultCellEditor implements TableCellEditor, Serializable {
 	protected JButton button;
 	private DeleteButtonListener bListener = new DeleteButtonListener();
 
@@ -37,9 +38,11 @@ public class DeleteButtonEditor extends DefaultCellEditor implements TableCellEd
 	    
 	private static final long serialVersionUID = -6913274537793975350L;
 	
-	class DeleteButtonListener implements ActionListener {
+	class DeleteButtonListener implements ActionListener, Serializable {
         
-        private int row;
+      
+		private static final long serialVersionUID = 1702751555572877322L;
+		private int row;
         private JTable table;
          
         public void setRow(int row){this.row = row;}
@@ -51,6 +54,7 @@ public class DeleteButtonEditor extends DefaultCellEditor implements TableCellEd
             System.out.println("coucou du bouton : "+ ((JButton)event.getSource()).getText() );
             //On affecte un nouveau libellé à une celulle de la ligne
             ((TableModel)table.getModel()).removeRow(this.row);
+            //trier
              table.setModel(table.getModel());
          }
       }

@@ -104,7 +104,7 @@ public class View extends JFrame {
 		pan = new JPanel();
 		panNouvelleTache = new JPanel();
 		panRight = new JPanel();
-		boutonMaJ = new JButton("Mettre à jour");
+		boutonMaJ = new JButton("Valider");
 		
 		ButtonGroup bg = new ButtonGroup();
 		//pan.setPreferredSize(new Dimension(400,100));
@@ -123,7 +123,7 @@ public class View extends JFrame {
 		initTable();
 		
 		scroll = new JScrollPane(table);
-		scroll.setPreferredSize(new Dimension(500,300));
+		scroll.setPreferredSize(new Dimension(800,300));
 		
 		panNouvelleTache.setLayout(new GridLayout(4,2));
 		//layout.putConstraint(SpringLayout.WEST, intitule, 5, SpringLayout.EAST, panNouvelleTache);
