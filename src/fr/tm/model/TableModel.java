@@ -97,10 +97,12 @@ public class TableModel extends AbstractTableModel implements Serializable{
 	public Object getValueAt(int row, int col) {
 		// TODO Auto-generated method stub
 		if(col == 0) { 				//Effectué
-			String str ="";
+			int s =-1;
 			if(trie[row] instanceof TachePonctuelle)
-				str = this.trie[row].estTerminee() ? "100" :"0";
-			return new String(str);
+				s = this.trie[row].estTerminee() ? 100 :0;
+			else if(trie[row] instanceof TacheLongCours)
+				s = ((TacheLongCours)trie[row]).getAvancement();
+			return s;
 		}
 		else if(col == 1) 			//Intitulé
 			return this.trie[row].getIntitule();
@@ -139,6 +141,35 @@ public class TableModel extends AbstractTableModel implements Serializable{
 	        		trier();
 	        		this.fireTableDataChanged();
 	        	}
+	        	try {
+	        		int av = Integer.parseInt((String) value);
+	        		if(trie[row] instanceof TacheLongCours && av <25) {
+		        		((TacheLongCours)t[trie[row].getId()]).setAvancement(av);
+		        		trier();
+		        		this.fireTableDataChanged();
+		        	}
+	        		if(trie[row] instanceof TacheLongCours && av >=25 && av<50) {
+		        		((TacheLongCours)t[trie[row].getId()]).setAvancement(av);
+		        		trier();
+		        		this.fireTableDataChanged();
+		        	}
+	        		if(trie[row] instanceof TacheLongCours && av >=50 && av <75) {
+		        		((TacheLongCours)t[trie[row].getId()]).setAvancement(av);
+		        		trier();
+		        		this.fireTableDataChanged();
+		        	}
+	        		if(trie[row] instanceof TacheLongCours && av >=75) {
+		        		((TacheLongCours)t[trie[row].getId()]).setAvancement(av);
+		        		if(av==100)
+		        			t[trie[row].getId()].setTerminee(true);
+		        		trier();
+		        		this.fireTableDataChanged();
+		        	}
+	        	}
+	        	catch(NumberFormatException e) {
+	        		
+	        	}
+	        	
 	        }
 	        serialize();
 	}
@@ -241,5 +272,9 @@ public class TableModel extends AbstractTableModel implements Serializable{
 			}
 			i++;
 		}
+	}
+
+	public Tache[] getTrie() {
+		return trie;
 	}
 }
