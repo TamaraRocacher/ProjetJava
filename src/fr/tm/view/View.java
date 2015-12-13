@@ -81,6 +81,8 @@ public class View extends JFrame {
 	public void initTable() {
 		//String title[] = {"Effectuée","Intitulé","Date Début", "Date Fin", "Catégorie", "Suppression"};
 		table = new JTable();
+		
+		table.setDefaultRenderer(Object.class, new MonTableRenderer());
 		//table.getColumn("Suppression").setCellEditor(new DeleteButtonEditor(new JCheckBox()));
 	}
 	
