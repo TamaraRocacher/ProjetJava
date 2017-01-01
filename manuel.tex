@@ -1,0 +1,42 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern} %pack de police
+\usepackage{tikz}
+
+\author{Meryll \bsc{Essig}\\ Tamara \bsc{Rocacher}}
+\date{\today}
+\title{Manuel d'utilisation}
+
+
+\begin{document}
+
+\vfill
+\maketitle
+\vfill
+\section*{Utilisation du programme}
+A la première ouverture de l'application,
+la liste des taches a effectuer est vide
+et l'utilisateur peut commencer a saisir ses taches.
+Dans la partie droite de la fenetre, il faut alors choisir le type de tache (ponctuelle ou longue), puis saisir
+un intitule, une date de debut, une date de fin, et choisir une categorie. En validant la saisie, la nouvelle tache s'insere dans la liste a gauche. 
+Pour supprimer une tache, il suffit de cliquer sur le bouton supprimer correspondant, dans le champ le plus a droite.
+\\
+\subsection*{Tache ponctuelle}
+Pour une tache ponctuelle, lorsque celle ci a été éffectuée, l'utilisateur doit alors saisir 100(\%) dans le champs le plus a gauche, "Effectuée". Ainsi, la tache disparait de la liste car elle n'est plus a faire.
+Si une tache ponctuelle n'a pas été effectuée au lendemain de la date de fin, alors elle est en retard et apparait en rouge dans la liste.
+\\
+
+\subsection*{Tache longue}
+Pour une tache longue, differentes étapes sont a effectuer et peuvent amener a un retard. Ainsi, l'utilisateur pourra saisir l'avancement de sa tache en pourcentage, dans le champ "Effectuée".
+Lorsque l'utilisateur saisi 100 dans ce champ, la tache est entièrement effectuée et disparait. Si l'avancement est inferieur a 100\%, alors le calcul du retard se fait par tranche de quart de la durée totale, et ainsi la tache apparait en rouge si:
+\begin{itemize}
+\item l'avancement est inferieur a 25\% au quart de la durée totale
+\item l'avancement est inferieur a 50\% a la moitié de la durée totale
+\item l'avancement est inferieur a 75\% aux trois-quarts de la durée totale
+\item l'avancement est inferieur a 100\% au lendemain de la date de fin de la tache\\
+\end{itemize}
+Dans la liste, les taches longues se differencient des autres en apparaissant en italique.
+
+\end{document}

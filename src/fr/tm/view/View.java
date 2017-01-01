@@ -234,29 +234,6 @@ public class View extends JFrame {
 	public void update() {
 		//table.getColumn("Suppression").setCellEditor(new ButtonEditor(new JCheckBox()));
 		this.table.getColumn("Suppression").setCellRenderer(new ButtonRenderer());
-		
-		/*table.getColumnModel().getColumn(0).setCellRenderer(new DefaultTableCellRenderer() {
-			
-			private static final long serialVersionUID = 1L;
-
-			public Component getTableCellRendererComponent(JTable table,
-	                Object value, boolean isSelected, boolean hasFocus, int row,
-	                int column) {
-	 
-	            if (value instanceof JComboBox) {
-	                return (JComboBox) value;
-	            }
-	            if (value instanceof Boolean) {
-	                JCheckBox cb = new JCheckBox();
-	                cb.setSelected(((Boolean) value).booleanValue());
-	                return cb;
-	            }
-	            if (value instanceof JCheckBox) {
-	                return (JCheckBox) value;
-	            }
-	            return new JTextField(value.toString());
-	        }
-		});*/
 	}
 
 	public JTable getTable() {

@@ -130,9 +130,6 @@ public class TableModel extends AbstractTableModel implements Serializable{
     }
 	
 	public void setValueAt(Object value, int row, int col) {
-	      //On interdit la modification sur certaines colonnes !
-	      //if(!this.getColumnName(col).equals("ffectuée")
-	        // && !this.getColumnName(col).equals("uppression"))
 	        System.out.println("TEST");
 	        if(col == 0 && row<trie.length){
 	        	if(trie[row] instanceof TachePonctuelle && value.equals("100")) {
@@ -237,7 +234,6 @@ public class TableModel extends AbstractTableModel implements Serializable{
 		int l=t.length;
 		//System.out.println(t[0]);
 		while(i<t.length){
-			System.out.println("boucle 1");
 			if(this.t[i].estTerminee()){
 				l--;
 			}
@@ -249,14 +245,12 @@ public class TableModel extends AbstractTableModel implements Serializable{
 		int nbT =0;
 		//for(i=0;i<t.length){
 		while(i<t.length){
-			System.out.println("boucle 2");
+			
 			if(!this.t[i].estTerminee()){
 				
 				for(j=0; j<nbT;j++){
-					System.out.println("boucle 3");
 					if(t[i].compareTo(trie[j])<0){
 						for(k=nbT;k>j;k--){
-							System.out.println("boucle 4");
 							trie[k]=trie[k-1];
 						}
 						trie[k]=t[i];
